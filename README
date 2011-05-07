@@ -1,3 +1,9 @@
-This is a project I did for my Computation Physics (PHYS 401) class. It searches for closed orbits in a specific three-body problem. Note that many of the methods used here are not suitable for public-facing applications. This project does not scale well, none of the main operations are behind login walls, and the debug is set to True. This project should be viewed as a proof-of-concept.
+This is a project I did for my Computation Physics (PHYS 401) class. 
+It searches for closed orbits in a specific three-body problem. Note 
+that many of the methods used here are not suitable for public-facing 
+applications. This project does not scale well, none of the main 
+operations are behind login walls, and the debug is set to True. This 
+project should be viewed as a proof-of-concept.
 
-There is more info in the project write-up, which is a file named "report.pdf".
+There is more info in the project write-up, which is a file named 
+"report.pdf".
