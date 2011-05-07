@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <link rel="stylesheet" href="/assets/css/main.css?30"/>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    
+    <title>Graphs Page</title>
+
+    <script src="/assets/js/jquery.js"></script>
+  </head>
+  <body>
+    The tuples are in the form (x, y, vx, vy)
+    <div>
+    {% for item in str_values %}
+    <a href="/just/graph?str_values={{ item }}">{{ item }}</a><br />
+    {% endfor %}
+    </div>
+  </body>
+</html>
+
+

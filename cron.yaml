@@ -1,0 +1,4 @@
+cron:
+#- description: Create the tasks
+#  url: /?my_range=11
+#  schedule: every day 08:07

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <link rel="stylesheet" href="/assets/css/main.css?30"/>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    
+    <title>Graphs Page</title>
+
+    <script src="/assets/js/jquery.js"></script>
+
+    <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['corechart']});
+
+
+
+      function initialize() {
+
+          var query = new google.visualization.Query('http://closedorbit.appspot.com/return/graph/data?str_value={{ str_values }}');
+          query.send(handleQueryResponse);
+
+      }
+
+      function handleQueryResponse(response) {
+          if (response.isError()) {
+              alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+              return;
+          }
+
+          var data = response.getDataTable();
+          var chart = new google.visualization.ScatterChart(
+              document.getElementById('chart_div'));
+          chart.draw(data, {title: '({{ str_values}}) as (x, y, vx, vy)',
+                            width: 800, height: 800, pointSize: 1,
+                            vAxis: {title: "Y", titleTextStyle: {color: "green"}},
+                            hAxis: {title: "X", titleTextStyle: {color: "green"}}});
+      }
+
+      google.setOnLoadCallback(initialize);
+
+    </script>
+  </head>
+  <body>
+    </div>
+    The graph is good:
+    <div id="form">
+      <form id="good_form" action="/good/or/bad" method="get" enctype="multipart/form-data">
+        <input type="radio" name="good_option" value="True" checked="yes"/> True <br />
+        <input type="radio" name="good_option" value="" /> False <br />
+        <input type="hidden" name="str_values" id="str_values" value="{{ str_values }}"/>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+    <div id="chart_div" style="margin:0px; padding:0px;">
+
+    </div>
+
+  </body>
+</html>
+
+
